@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campaign Dashboard</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+      .card { border: 1px solid #ddd; border-radius: 10px; padding: 1rem; }
+      h1 { margin-bottom: 1rem; }
+      .value { font-size: 1.6rem; font-weight: 700; margin-top: .5rem; }
+      .muted { color: #666; }
+      .footer { margin-top: 2rem; color: #777; font-size: .9rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Campaign Dashboard</h1>
+
+    <div class="grid">
+      <div class="card">
+        <div class="muted">Total Campaigns</div>
+        <div class="value">{{ stats.total_campaigns }}</div>
+      </div>
+      <div class="card">
+        <div class="muted">Total Recipients</div>
+        <div class="value">{{ stats.total_recipients }}</div>
+      </div>
+      <div class="card">
+        <div class="muted">Total Opens</div>
+        <div class="value">{{ stats.total_opens }}</div>
+      </div>
+      <div class="card">
+        <div class="muted">Open Rate</div>
+        <div class="value">{{ (stats.open_rate * 100) | round(2) }}%</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Tracking pixel endpoint: <code>/track/<public_id>.png</code>
+    </div>
+  </body>
+</html>
+
